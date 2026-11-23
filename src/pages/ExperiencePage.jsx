@@ -44,9 +44,6 @@ function ExperiencePage() {
                     <div>
                       <div className="timeline-badge-row">
                         <span className="badge badge-accent">{exp.type}</span>
-                        <span className="status-live-tag">
-                          <span className="status-dot"></span> Active Role
-                        </span>
                       </div>
                       <h3 className="timeline-role">{exp.role}</h3>
                       <h4 className="timeline-company">{exp.company}</h4>

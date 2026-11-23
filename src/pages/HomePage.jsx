@@ -1,24 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { profile, specializations, projects, experience } from "../data.js";
+import { profile, specializations, projects, experience, qaWorkflow, contactInfo } from "../data.js";
 import {
   ShieldCheck,
   Database,
   Code,
   Bug,
   Terminal,
+  Network,
   ArrowRight,
-  ExternalLink,
   Briefcase,
-  GraduationCap,
-  Sparkles,
-  CheckCircle,
-  FileText
+  Mail,
+  MapPin,
+  CheckCircle2,
+  Calendar,
+  ExternalLink
 } from "lucide-react";
 import ProjectCard from "../components/ProjectCard.jsx";
+import GithubIcon from "../components/GithubIcon.jsx";
 
 const iconMap = {
   ShieldCheck,
+  Network,
   Database,
   Code,
   Bug,
@@ -31,45 +34,42 @@ function HomePage() {
 
   return (
     <div className="home-page">
-      {/* Hero Section */}
+      {/* =========================================================================
+          Hero Section - Clean, Human, Senior Developer Aesthetic
+          ========================================================================= */}
       <section className="hero-section">
-        <div className="container">
+        <div className="container hero-container">
+          {/* Left Column: Direct, Authentic Human Introduction */}
           <div className="hero-content">
-            {/* Availability Badge */}
-            <div className="status-pill">
-              <span className="status-dot"></span>
-              <span>{profile.status}</span>
-            </div>
-
             <h1 className="hero-title">
-              Hi, I'm <span className="highlight-text">{profile.name}</span>.
+              Hi, I'm <span className="hero-name-accent">{profile.name}</span>.
             </h1>
 
-            <p className="hero-role">{profile.role}</p>
-
-            <p className="hero-intro">
-              {profile.tagline} Currently interning at{" "}
-              <strong>Pravidhi Digital Innovation</strong> and completing my 7th
-              semester in Bachelor of Computer Applications (BCA) at La Grandee
-              International College.
+            <p className="hero-role-title">
+              QA &amp; Software Testing Engineer based in Pokhara, Nepal.
             </p>
 
-            {/* CTAs */}
+            <p className="hero-intro">
+              Currently interning at <strong>Pravidhi Digital Innovation</strong> and pursuing my 7th semester of Bachelor of Computer Applications (BCA) at La Grandee International College (affiliated with Pokhara University). My primary focus is on <strong>manual testing</strong>, <strong>REST API validation using Postman</strong>, and <strong>database verification with SQL</strong>.
+            </p>
+
+            {/* Clean CTAs */}
             <div className="hero-buttons">
               <Link to="/projects" className="btn btn-primary">
-                <span>Explore Projects</span>
+                <span>View Projects</span>
                 <ArrowRight size={16} />
               </Link>
               <Link to="/experience" className="btn btn-secondary">
                 <Briefcase size={16} />
-                <span>View QA Experience</span>
+                <span>Work Experience</span>
               </Link>
               <Link to="/contact" className="btn btn-outline">
+                <Mail size={16} />
                 <span>Get in Touch</span>
               </Link>
             </div>
 
-            {/* Stats Row */}
+            {/* Honest, Grounded Overview Grid */}
             <div className="hero-stats-grid">
               {profile.stats.map((stat, idx) => (
                 <div key={idx} className="stat-card">
@@ -80,29 +80,76 @@ function HomePage() {
               ))}
             </div>
           </div>
+
+          {/* Right Column: Clean, Elegant Framed Portrait (No Gimmicks) */}
+          <div className="hero-visual-wrapper">
+            <div className="portrait-frame-card">
+              <div className="portrait-photo-box">
+                <img
+                  src={profile.avatar || "/profile.jpg"}
+                  alt={profile.name}
+                  className="portrait-photo"
+                  loading="eager"
+                />
+              </div>
+
+              <div className="portrait-meta-footer">
+                <div className="portrait-info-line">
+                  <span className="portrait-name-bold">{profile.name}</span>
+                  <span className="portrait-sub-tag">QA Intern @ Pravidhi Digital</span>
+                </div>
+
+                <div className="portrait-links-row">
+                  <a
+                    href={profile.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="portrait-pill-link"
+                    title="GitHub Profile"
+                  >
+                    <GithubIcon size={14} />
+                    <span>GitHub</span>
+                  </a>
+                  <a
+                    href={`mailto:${contactInfo.email}`}
+                    className="portrait-pill-link"
+                    title="Send Email"
+                  >
+                    <Mail size={14} />
+                    <span>Email</span>
+                  </a>
+                  <div className="portrait-location-badge">
+                    <MapPin size={13} />
+                    <span>Pokhara, Nepal</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Specialization / What I Do */}
+      {/* =========================================================================
+          Areas of Focus / Core Disciplines
+          ========================================================================= */}
       <section className="home-section bg-alt">
         <div className="container">
           <div className="section-header">
-            <span className="section-eyebrow">Core Expertise</span>
-            <h2 className="section-title">What I Bring to the Table</h2>
+            <span className="section-eyebrow">Disciplines</span>
+            <h2 className="section-title">What I Focus On</h2>
             <p className="section-subtitle">
-              Combining systematic quality assurance methodologies with strong
-              backend and programming foundations.
+              Clear fundamentals in manual test execution, API request inspection in Postman, and backend database queries.
             </p>
           </div>
 
-          <div className="spec-grid">
+          <div className="spec-bento-grid">
             {specializations.map((item) => {
               const IconComp = iconMap[item.icon] || ShieldCheck;
               return (
-                <div key={item.id} className="spec-card">
+                <div key={item.id} className="spec-bento-card">
                   <div className="spec-card-top">
                     <div className="spec-icon-wrapper">
-                      <IconComp size={24} />
+                      <IconComp size={22} />
                     </div>
                     <span className="spec-badge">{item.badge}</span>
                   </div>
@@ -115,38 +162,67 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Experience Preview */}
+      {/* =========================================================================
+          Testing Process / STLC Pipeline
+          ========================================================================= */}
       <section className="home-section">
+        <div className="container">
+          <div className="section-header">
+            <span className="section-eyebrow">Process</span>
+            <h2 className="section-title">My Testing Approach</h2>
+            <p className="section-subtitle">
+              A standard, methodical workflow applied from requirement breakdown to bug verification.
+            </p>
+          </div>
+
+          <div className="workflow-pipeline">
+            {qaWorkflow.map((step, idx) => (
+              <div key={idx} className="workflow-step-card">
+                <div className="workflow-step-number">{step.step}</div>
+                <h3 className="workflow-step-title">{step.title}</h3>
+                <p className="workflow-step-desc">{step.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          Current Experience Spotlight
+          ========================================================================= */}
+      <section className="home-section bg-alt">
         <div className="container">
           <div className="section-header-inline">
             <div>
-              <span className="section-eyebrow">Professional Milestone</span>
-              <h2 className="section-title">Current Work Experience</h2>
+              <span className="section-eyebrow">Work History</span>
+              <h2 className="section-title">Current Role</h2>
             </div>
             <Link to="/experience" className="btn-inline-link">
-              <span>View full timeline</span>
+              <span>View full experience</span>
               <ArrowRight size={16} />
             </Link>
           </div>
 
-          <div className="exp-preview-card">
-            <div className="exp-preview-header">
-              <div>
-                <span className="exp-preview-badge">Active Internship</span>
-                <h3 className="exp-preview-role">{currentExp.role}</h3>
-                <div className="exp-preview-company">
-                  <span>{currentExp.company}</span>
-                  <span className="dot-sep">&bull;</span>
-                  <span>{currentExp.location}</span>
-                </div>
+          <div className="exp-spotlight-card">
+            <div className="exp-spotlight-header">
+              <div className="exp-spotlight-badge-group">
+                <span className="badge badge-accent">{currentExp.type}</span>
               </div>
-              <div className="exp-preview-period">{currentExp.period}</div>
+              <div className="exp-spotlight-period">{currentExp.period}</div>
             </div>
 
-            <p className="exp-preview-desc">{currentExp.description}</p>
+            <div className="exp-spotlight-main">
+              <div className="exp-spotlight-title-group">
+                <h3 className="exp-spotlight-role">{currentExp.role}</h3>
+                <h4 className="exp-spotlight-company">
+                  {currentExp.company} <span className="text-muted">• {currentExp.location}</span>
+                </h4>
+              </div>
+              <p className="exp-spotlight-desc">{currentExp.description}</p>
+            </div>
 
-            <div className="exp-preview-skills">
-              {currentExp.skillsUsed.slice(0, 6).map((skill) => (
+            <div className="exp-spotlight-skills">
+              {currentExp.skillsUsed.map((skill) => (
                 <span key={skill} className="tech-pill">
                   {skill}
                 </span>
@@ -156,16 +232,18 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Featured Projects Preview */}
-      <section className="home-section bg-alt">
+      {/* =========================================================================
+          Featured Projects
+          ========================================================================= */}
+      <section className="home-section">
         <div className="container">
           <div className="section-header-inline">
             <div>
-              <span className="section-eyebrow">Selected Works</span>
-              <h2 className="section-title">Featured Projects</h2>
+              <span className="section-eyebrow">Portfolio</span>
+              <h2 className="section-title">Selected Projects</h2>
             </div>
             <Link to="/projects" className="btn-inline-link">
-              <span>Browse all projects</span>
+              <span>All projects ({projects.length})</span>
               <ArrowRight size={16} />
             </Link>
           </div>
@@ -175,37 +253,30 @@ function HomePage() {
               <ProjectCard key={project.id} project={project} />
             ))}
           </div>
-
-          <div className="projects-view-all">
-            <Link to="/projects" className="btn btn-outline">
-              <span>View All 4 Projects &amp; Testing Artifacts</span>
-              <ArrowRight size={16} />
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* =========================================================================
+          Contact Invitation Callout
+          ========================================================================= */}
       <section className="home-cta-section">
         <div className="container">
           <div className="cta-banner">
             <div className="cta-content">
-              <span className="cta-eyebrow">Let's Collaborate</span>
+              <span className="cta-eyebrow">Contact</span>
               <h2 className="cta-title">
-                Looking for a meticulous QA or Software Engineer?
+                Interested in working together?
               </h2>
               <p className="cta-desc">
-                I am actively seeking software testing internships and junior QA /
-                engineering roles where I can make an immediate impact on product
-                stability and code quality.
+                I am actively open to junior QA engineer, software testing internship, and QA testing roles. If you have an opportunity or question, feel free to reach out.
               </p>
               <div className="cta-actions">
                 <Link to="/contact" className="btn btn-primary">
-                  <span>Start a Conversation</span>
+                  <span>Send a Message</span>
                   <ArrowRight size={16} />
                 </Link>
                 <Link to="/about" className="btn btn-outline">
-                  <span>Learn More About Manish</span>
+                  <span>Read About Manish</span>
                 </Link>
               </div>
             </div>

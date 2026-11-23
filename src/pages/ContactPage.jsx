@@ -46,23 +46,8 @@ function ContactPage() {
             <div className="contact-info-col">
               <h2 className="section-title">Contact Channels</h2>
               <p className="contact-intro-text">
-                I am responsive and eager to connect regarding software quality assurance, engineering projects, or academic collaborations.
+                Feel free to reach out regarding software testing opportunities, QA projects, or questions. I typically reply within 24 hours.
               </p>
-
-              {/* Status Banner */}
-              <div className="availability-card">
-                <div className="availability-status">
-                  <span className="status-dot"></span>
-                  <span className="status-title">Current Availability</span>
-                </div>
-                <p className="availability-desc">
-                  Open for full-time, part-time, or contract QA internships &amp; software testing roles.
-                </p>
-                <div className="response-time">
-                  <Clock size={14} />
-                  <span>{contactInfo.responseTime}</span>
-                </div>
-              </div>
 
               {/* Direct Info Cards */}
               <div className="contact-channels-list">

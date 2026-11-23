@@ -7,38 +7,37 @@ import {
   Target,
   Code2,
   CheckCircle2,
-  Layers,
   ArrowRight,
   MapPin,
   Mail,
-  GraduationCap,
-  Briefcase
+  Network
 } from "lucide-react";
+import GithubIcon from "../components/GithubIcon.jsx";
 
 function AboutPage() {
   const philosophies = [
     {
       title: "Prevention Over Patching",
       description:
-        "The best time to catch a bug is during requirements analysis before a line of code is written. I analyze acceptance criteria early to eliminate ambiguities.",
+        "The best time to catch an issue is early during requirement analysis before development begins. Reviewing acceptance criteria early prevents costly fixes later.",
       icon: ShieldCheck
     },
     {
-      title: "Boundary & Edge-Case Vigilance",
+      title: "API & Backend Validation",
       description:
-        "Standard user workflows rarely reveal breaking issues. I apply Boundary Value Analysis and Equivalence Partitioning to probe where applications tend to fail.",
+        "A working UI must be supported by consistent APIs and clean data. I verify REST API endpoints in Postman and validate data records directly in SQL tables.",
+      icon: Network
+    },
+    {
+      title: "Boundary & Edge Case Attention",
+      description:
+        "Standard user workflows rarely expose breaking issues. I apply Boundary Value Analysis (BVA) and Equivalence Partitioning (EP) to examine where logic is likely to fail.",
       icon: Target
     },
     {
-      title: "Data & Constraint Integrity",
+      title: "Constructive Collaboration",
       description:
-        "A reliable frontend is meaningless if data persistence breaks. My background in PostgreSQL and SQL allows me to validate data persistence directly at the database layer.",
-      icon: Code2
-    },
-    {
-      title: "Constructive Developer Partnership",
-      description:
-        "Testing is not about finding fault—it is about shipping great software together. I provide clear reproduction steps, logs, and screenshots so developers can reproduce and fix bugs quickly.",
+        "Testing is about shipping stable software as a team. I provide clear steps to reproduce, actual vs. expected results, and logs to help developers resolve defects quickly.",
       icon: CheckCircle2
     }
   ];
@@ -46,9 +45,9 @@ function AboutPage() {
   return (
     <div className="about-page">
       <PageHeader
-        badge="Professional Profile"
+        badge="About Me"
         title="About Manish Adhikari"
-        subtitle="7th semester BCA student and QA / Software Testing Intern passionate about engineering reliability and robust software systems."
+        subtitle="7th semester BCA student and QA / Software Testing Intern based in Pokhara, Nepal."
         breadcrumb="About"
       />
 
@@ -57,7 +56,7 @@ function AboutPage() {
           <div className="about-grid">
             {/* Left Bio Column */}
             <div className="about-bio-col">
-              <h2 className="section-title">Background &amp; Aspirations</h2>
+              <h2 className="section-title">Background &amp; Focus</h2>
 
               <p className="about-lead">
                 I am a 7th semester Bachelor of Computer Applications (BCA) student
@@ -66,83 +65,90 @@ function AboutPage() {
               </p>
 
               <p>
-                My passion for Software Quality Assurance grew from building academic
-                and desktop applications in Java and Python. Whenever I implemented a
-                feature—whether it was user authentication, question bank CRUD operations,
-                or database transactions—I found myself constantly testing edge cases,
-                invalid inputs, and system limits to make sure the software wouldn't break.
+                My journey into software testing started while building academic desktop applications in Java and Python. Whenever I implemented a feature—such as user login authentication, question bank management, or database transactions—I found myself spending extra time testing boundary limits, invalid inputs, and unexpected workflows to ensure the system remained stable.
               </p>
 
               <p>
-                Currently, I am putting this mindset into industry practice as a{" "}
+                Currently, I am putting these fundamentals into practice as a{" "}
                 <strong>QA / Software Testing Intern at Pravidhi Digital Innovation</strong>.
-                Working alongside senior engineers, I execute manual test suites, formulate
-                test matrices, verify bug fixes, and validate database records using SQL.
+                My work involves analyzing user requirements, writing detailed test cases, executing manual functional tests, verifying REST APIs using Postman, and inspecting database records using SQL.
               </p>
 
               <p>
-                I am actively seeking QA and Software Engineering opportunities where I
-                can apply my strong testing foundation, problem-solving abilities, and
-                continuous curiosity to ensure bulletproof software quality.
+                I am actively seeking junior QA, software testing internship, or software roles where I can contribute thorough testing, strong curiosity, and dependable attention to detail.
               </p>
 
               {/* Action Buttons */}
               <div className="about-actions">
                 <Link to="/experience" className="btn btn-primary">
-                  <span>View My Work Experience</span>
+                  <span>View Work Experience</span>
                   <ArrowRight size={16} />
                 </Link>
                 <Link to="/contact" className="btn btn-outline">
-                  <span>Contact Me</span>
+                  <span>Get in Touch</span>
                 </Link>
               </div>
             </div>
 
-            {/* Right Quick Facts Card */}
+            {/* Right Sidebar: Clean Profile Card */}
             <div className="about-sidebar-col">
-              <div className="quick-facts-card">
-                <h3 className="facts-title">Quick Overview</h3>
+              <div className="about-profile-card">
+                <div className="about-avatar-container">
+                  <img
+                    src={profile.avatar || "/profile.jpg"}
+                    alt={profile.name}
+                    className="about-avatar-img"
+                  />
+                </div>
+
+                <div className="about-profile-header">
+                  <h3 className="about-profile-name">{profile.name}</h3>
+                  <p className="about-profile-role">{profile.role}</p>
+                </div>
 
                 <ul className="facts-list">
                   <li>
-                    <span className="fact-label">Full Name</span>
-                    <span className="fact-val">{profile.name}</span>
-                  </li>
-                  <li>
-                    <span className="fact-label">Primary Role</span>
-                    <span className="fact-val">QA &amp; Software Testing Intern</span>
-                  </li>
-                  <li>
                     <span className="fact-label">Education</span>
-                    <span className="fact-val">BCA, 7th Semester (Pokhara Univ.)</span>
+                    <span className="fact-val">BCA (7th Sem Ongoing)</span>
                   </li>
                   <li>
-                    <span className="fact-label">Current Company</span>
-                    <span className="fact-val">Pravidhi Digital Innovation</span>
+                    <span className="fact-label">College</span>
+                    <span className="fact-val">La Grandee Int'l College</span>
+                  </li>
+                  <li>
+                    <span className="fact-label">Affiliation</span>
+                    <span className="fact-val">Pokhara University</span>
+                  </li>
+                  <li>
+                    <span className="fact-label">Current Role</span>
+                    <span className="fact-val">QA Intern @ Pravidhi Digital</span>
                   </li>
                   <li>
                     <span className="fact-label">Location</span>
                     <span className="fact-val">{profile.location}</span>
                   </li>
                   <li>
-                    <span className="fact-label">Availability</span>
-                    <span className="fact-val status-highlight">
-                      Open to Opportunities
-                    </span>
-                  </li>
-                  <li>
-                    <span className="fact-label">Languages</span>
-                    <span className="fact-val">English, Nepali</span>
+                    <span className="fact-label">Primary Focus</span>
+                    <span className="fact-val status-highlight">Manual Testing &amp; Postman</span>
                   </li>
                 </ul>
 
                 <div className="facts-card-footer">
                   <a
                     href={`mailto:${contactInfo.email}`}
-                    className="btn btn-sm btn-outline btn-block"
+                    className="btn btn-sm btn-primary w-full"
                   >
-                    <Mail size={14} />
-                    <span>{contactInfo.email}</span>
+                    <Mail size={15} />
+                    <span>Send Email</span>
+                  </a>
+                  <a
+                    href={profile.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-sm btn-outline w-full"
+                  >
+                    <GithubIcon size={15} />
+                    <span>GitHub Profile</span>
                   </a>
                 </div>
               </div>
@@ -151,27 +157,27 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* Quality Philosophy Section */}
+      {/* Philosophy Section */}
       <section className="about-philosophy-section bg-alt">
         <div className="container">
           <div className="section-header">
-            <span className="section-eyebrow">Guiding Principles</span>
-            <h2 className="section-title">My Approach to Quality Assurance</h2>
+            <span className="section-eyebrow">Principles</span>
+            <h2 className="section-title">Testing Approach</h2>
             <p className="section-subtitle">
-              Quality is an engineering discipline, not an afterthought. Here is how I approach every testing cycle.
+              Core principles I follow when testing features and documenting defects.
             </p>
           </div>
 
           <div className="philosophy-grid">
-            {philosophies.map((item, idx) => {
-              const Icon = item.icon;
+            {philosophies.map((phil, idx) => {
+              const IconComp = phil.icon;
               return (
                 <div key={idx} className="philosophy-card">
                   <div className="philosophy-icon">
-                    <Icon size={22} />
+                    <IconComp size={22} />
                   </div>
-                  <h3 className="philosophy-title">{item.title}</h3>
-                  <p className="philosophy-desc">{item.description}</p>
+                  <h3 className="philosophy-title">{phil.title}</h3>
+                  <p className="philosophy-desc">{phil.description}</p>
                 </div>
               );
             })}

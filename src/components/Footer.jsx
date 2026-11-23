@@ -18,10 +18,6 @@ function Footer() {
             <p className="footer-desc">
               QA &amp; Software Testing Intern and 7th semester BCA student at La Grandee International College. Committed to software quality, thorough defect detection, and reliable software systems.
             </p>
-            <div className="footer-availability-badge">
-              <span className="status-dot"></span>
-              <span>Available for Opportunities</span>
-            </div>
           </div>
 
           {/* Col 2: Navigation Links */}

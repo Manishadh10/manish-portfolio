@@ -7,49 +7,52 @@ import {
   Code,
   Database,
   Terminal,
-  CheckCircle,
-  HelpCircle,
+  Network,
   ArrowRight
 } from "lucide-react";
 
 const categoryIconMap = {
   ShieldCheck,
+  Network,
   Code,
   Database,
-  Terminal,
-  CheckCircle
+  Terminal
 };
 
 function SkillsPage() {
   const qaConcepts = [
     {
+      term: "Test Case Design",
+      desc: "Structuring test scenarios with clear preconditions, specific test data, step-by-step instructions, and expected vs. actual outcomes."
+    },
+    {
       term: "Boundary Value Analysis (BVA)",
-      desc: "Testing values at the boundaries of input domains (min, min+1, nom, max-1, max) where software systems most commonly fail."
+      desc: "Testing values right at the boundaries of input limits (min, min+1, max-1, max) where software calculations and edge cases often break."
     },
     {
       term: "Equivalence Partitioning (EP)",
-      desc: "Dividing test input data into valid and invalid partitions, selecting representative test cases to optimize coverage without redundancy."
+      desc: "Dividing test data into valid and invalid partitions to select representative test cases and eliminate redundant testing."
+    },
+    {
+      term: "API Testing in Postman",
+      desc: "Verifying endpoints using GET, POST, PUT, DELETE, inspecting HTTP status codes, query parameters, auth headers, and JSON response bodies."
     },
     {
       term: "Defect Life Cycle",
-      desc: "Tracking defects through states: New -> Assigned -> Open -> Fixed -> Retest -> Verified -> Closed (or Reopened)."
+      desc: "Logging bugs with precise reproduction steps, environment details, and severity, followed by retesting fixed issues before closure."
     },
     {
       term: "Smoke vs. Sanity Testing",
-      desc: "Smoke verifies critical builds for basic stability; Sanity focuses on specific modules after minor bug fixes or builds."
-    },
-    {
-      term: "Regression Testing",
-      desc: "Re-executing test suites to guarantee that recent code modifications haven't introduced regressions into existing features."
+      desc: "Executing quick smoke tests to accept builds for further testing, and sanity passes to verify specific bug fixes."
     }
   ];
 
   return (
     <div className="skills-page">
       <PageHeader
-        badge="Technical Stack"
-        title="Skills &amp; Technical Competencies"
-        subtitle="A comprehensive overview of software quality engineering, programming languages, relational databases, and industry tools."
+        badge="Technical Skills"
+        title="Skills &amp; Competencies"
+        subtitle="A clear overview of my fundamentals in manual software testing, API testing with Postman, SQL database queries, and programming foundations."
         breadcrumb="Skills"
       />
 
@@ -71,13 +74,10 @@ function SkillsPage() {
                     </div>
                   </div>
 
-                  <div className="skills-items-grid">
-                    {category.skills.map((skill) => (
-                      <div key={skill.name} className="skill-item-card">
-                        <div className="skill-item-top">
-                          <span className="skill-item-name">{skill.name}</span>
-                          <span className="skill-level-badge">{skill.level}</span>
-                        </div>
+                  <div className="skills-pill-grid">
+                    {category.skills.map((skill, idx) => (
+                      <div key={idx} className="skill-item-card">
+                        <h3 className="skill-item-name">{skill.name}</h3>
                         <p className="skill-item-desc">{skill.desc}</p>
                       </div>
                     ))}
@@ -89,42 +89,40 @@ function SkillsPage() {
         </div>
       </section>
 
-      {/* QA Concepts Glossary / Best Practices */}
+      {/* QA Concepts Reference */}
       <section className="qa-concepts-section bg-alt">
         <div className="container">
           <div className="section-header">
-            <span className="section-eyebrow">Theoretical &amp; Applied Knowledge</span>
-            <h2 className="section-title">Core QA Principles &amp; Techniques</h2>
+            <span className="section-eyebrow">Methodologies</span>
+            <h2 className="section-title">Core Testing Fundamentals</h2>
             <p className="section-subtitle">
-              Foundational software testing concepts I utilize in everyday verification.
+              Standard techniques applied during test planning, boundary checks, and API validation.
             </p>
           </div>
 
-          <div className="concepts-grid">
+          <div className="qa-concepts-grid">
             {qaConcepts.map((item, idx) => (
-              <div key={idx} className="concept-card">
-                <h3 className="concept-term">{item.term}</h3>
-                <p className="concept-desc">{item.desc}</p>
+              <div key={idx} className="qa-concept-card">
+                <span className="qa-concept-index">0{idx + 1}</span>
+                <h3 className="qa-concept-term">{item.term}</h3>
+                <p className="qa-concept-desc">{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Bottom CTA */}
-      <section className="home-section">
-        <div className="container text-center">
-          <h2 className="section-title">Interested in working together?</h2>
-          <p className="section-subtitle">
-            Let's discuss how my testing and development skill set fits into your engineering team.
-          </p>
-          <div className="hero-buttons center">
-            <Link to="/contact" className="btn btn-primary">
-              <span>Get in Touch</span>
+      {/* Next Step CTA */}
+      <section className="skills-cta-section">
+        <div className="container">
+          <div className="skills-cta-card">
+            <div>
+              <h3>Interested in practical project work?</h3>
+              <p>Explore desktop applications, backend database schemas, and testing artifacts.</p>
+            </div>
+            <Link to="/projects" className="btn btn-primary">
+              <span>View Projects</span>
               <ArrowRight size={16} />
-            </Link>
-            <Link to="/experience" className="btn btn-outline">
-              <span>View Experience</span>
             </Link>
           </div>
         </div>
