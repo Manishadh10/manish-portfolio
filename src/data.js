@@ -9,7 +9,6 @@ export const profile = {
   bio: "I'm a 7th semester Bachelor of Computer Applications (BCA) student at La Grandee International College (affiliated with Pokhara University) and currently interning as a QA / Software Testing Intern at Pravidhi Digital Innovation in Pokhara. I focus on systematic manual testing, REST API validation with Postman, SQL database verification, and structured defect lifecycles.",
   location: "Pokhara, Gandaki, Nepal",
   email: "adhikarimanish2006@gmail.com",
-  phone: "+977 9764806842",
   github: "https://github.com/Manishadh10",
   githubUsername: "Manishadh10",
   stats: [
@@ -373,8 +372,6 @@ export const education = [
 
 export const contactInfo = {
   email: profile.email,
-  phone: profile.phone,
-  displayPhone: "+977 9764806842",
   location: profile.location,
   github: profile.github,
   githubDisplay: "github.com/Manishadh10",

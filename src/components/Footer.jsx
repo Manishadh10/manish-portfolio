@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { profile, navLinks, contactInfo } from "../data.js";
-import { Mail, Phone, MapPin, ArrowUpRight, ShieldCheck } from "lucide-react";
+import { Mail, MapPin, ArrowUpRight, ShieldCheck } from "lucide-react";
 import GithubIcon from "./GithubIcon.jsx";
 
 function Footer() {
@@ -42,12 +42,6 @@ function Footer() {
                 <a href={`mailto:${contactInfo.email}`} className="footer-contact-item">
                   <Mail size={16} />
                   <span>{contactInfo.email}</span>
-                </a>
-              </li>
-              <li>
-                <a href={`tel:${contactInfo.phone}`} className="footer-contact-item">
-                  <Phone size={16} />
-                  <span>{contactInfo.displayPhone}</span>
                 </a>
               </li>
               <li className="footer-contact-item">

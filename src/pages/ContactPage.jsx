@@ -4,7 +4,6 @@ import ContactForm from "../components/ContactForm.jsx";
 import { contactInfo, profile } from "../data.js";
 import {
   Mail,
-  Phone,
   MapPin,
   Clock,
   Briefcase,
@@ -63,22 +62,6 @@ function ContactPage() {
                       className="channel-value channel-link"
                     >
                       {contactInfo.email}
-                    </a>
-                  </div>
-                </div>
-
-                {/* Phone */}
-                <div className="contact-channel-card">
-                  <div className="channel-icon">
-                    <Phone size={20} />
-                  </div>
-                  <div className="channel-content">
-                    <span className="channel-label">Phone / WhatsApp</span>
-                    <a
-                      href={`tel:${contactInfo.phone}`}
-                      className="channel-value channel-link"
-                    >
-                      {contactInfo.displayPhone}
                     </a>
                   </div>
                 </div>
