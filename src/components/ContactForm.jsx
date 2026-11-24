@@ -42,11 +42,12 @@ function ContactForm() {
       return;
     }
 
-    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+    const accessKey =
+      (import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "ee8ea748-cf3f-4b6f-8440-0b0e91b1ef20").trim();
 
-    if (!accessKey || accessKey.trim() === "" || accessKey.includes("YOUR_")) {
+    if (!accessKey || accessKey === "" || accessKey.includes("YOUR_")) {
       setError(
-        "Email service key (VITE_WEB3FORMS_ACCESS_KEY) is missing in .env. Please add your free Web3Forms access key, or send directly via your email app below."
+        "Email service key (VITE_WEB3FORMS_ACCESS_KEY) is missing. Please add your free Web3Forms access key, or send directly via your email app below."
       );
       return;
     }
